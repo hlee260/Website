@@ -244,7 +244,7 @@ sup { font-size: .7em; line-height: 0; }
   border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); border-radius: 999px; color: var(--accent);
 }
 .profile__role { margin-top: 8px; font-size: 16px; color: var(--muted); }
-.profile__org { font-size: 16px; font-weight: 700; }
+.profile__org { font-size: 16px; }
 .profile__links { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
 .profile__links a {
   width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%;
@@ -258,7 +258,6 @@ sup { font-size: .7em; line-height: 0; }
 
 .bio { padding-top: 6px; }
 .bio > p { color: var(--muted); font-size: 1.04rem; margin-bottom: 14px; max-width: 44em; }
-.bio strong { color: var(--text); font-weight: 700; }
 .bio a { color: var(--text); border-bottom: 1px solid color-mix(in srgb, var(--accent) 65%, transparent); transition: color .2s; }
 .bio a:hover { color: var(--accent); }
 .bio i { font-family: var(--font-serif); font-size: 1.06em; }
