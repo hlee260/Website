@@ -9,9 +9,6 @@ CSS and JavaScript, so there is no build step: GitHub Pages serves it as-is.
 - **About:** portrait (click it to see the full photo), name, role and
   links, plus the biography, interests and education.
 - **News:** a dated list of recent milestones.
-- **Research highlight:** an **interactive ARTIST explainer**. Drag the target concentration,
-  swap aptamers (thrombin / IL-6 / TNF-α / IFN-γ) and switch between analog and digital
-  circuits, while the schematic simulation and dose-response chart respond live.
 - **Publications:** first-author papers with figure thumbnails (click to enlarge), plus
   co-authored papers, the book chapter and patents.
 - Talks and posters, honors and awards, code and data, press, and contact.
@@ -26,7 +23,6 @@ index.html              ← all page content lives here
 404.html                ← self-contained "page not found"
 assets/
   css/style.css         ← design tokens (colors, type) at the top, then components
-  js/artist.js          ← interactive ARTIST explainer
   js/main.js            ← nav, theme, reveal, lightbox, email, footer easter egg
   fonts/                ← WOFF fonts + licences
   img/                  ← avatar + full photo, favicon, social card, grain texture
@@ -50,8 +46,7 @@ assets/
 ## Editing content
 
 Everything is plain HTML in `index.html`, organized by commented sections
-(`ABOUT`, `NEWS`, `RESEARCH HIGHLIGHT`, `PUBLICATIONS`, `TALKS`, `AWARDS`, `CODE, DATA & PRESS`,
-`CONTACT`).
+(`ABOUT`, `NEWS`, `PUBLICATIONS`, `TALKS`, `AWARDS`, `CODE, DATA & PRESS`, `CONTACT`).
 
 - **Add news:** copy a `<li><time>…</time><p>…</p></li>` line at the top of the News list.
 - **Add a publication:** copy a `<li class="paper">` block (first-author, with figure) or a

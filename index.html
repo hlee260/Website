@@ -99,7 +99,6 @@
       <nav class="nav__links" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#news">News</a>
-        <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#talks">Talks</a>
         <a href="#awards">Awards</a>
@@ -119,7 +118,6 @@
       <nav aria-label="Mobile">
         <a href="#about">About</a>
         <a href="#news">News</a>
-        <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#talks">Talks</a>
         <a href="#awards">Awards</a>
@@ -158,7 +156,7 @@
         <h2 class="h2">Biography</h2>
         <p class="bio__tagline">Programming nucleic acids to <span class="scramble" data-words="sense,compute,fold,signal">sense</span><span class="scramble__dot">.</span></p>
         <p>I’m a postdoctoral scholar at <strong>Stanford University</strong>, where I combine computational structure prediction with experiments to design RNA aptamers that bind small-molecule ligands.</p>
-        <p>I completed my Ph.D. in Biomedical Engineering at <strong>Johns Hopkins University</strong> with Rebecca Schulman, building molecular biosensors, DNA/RNA networks and reaction cascades that compute on biomolecules. My dissertation introduced <a href="#research">ARTIST</a>, a plug-and-play platform that turns aptamer–protein binding into programmable transcriptional outputs (<a href="https://doi.org/10.1038/s41467-024-51907-4" target="_blank" rel="noopener"><i>Nature Communications</i>, 2024</a>).</p>
+        <p>I completed my Ph.D. in Biomedical Engineering at <strong>Johns Hopkins University</strong> with Rebecca Schulman, building molecular biosensors, DNA/RNA networks and reaction cascades that compute on biomolecules. My dissertation introduced <a href="#paper-artist">ARTIST</a>, a plug-and-play platform that turns aptamer–protein binding into programmable transcriptional outputs (<a href="https://doi.org/10.1038/s41467-024-51907-4" target="_blank" rel="noopener"><i>Nature Communications</i>, 2024</a>).</p>
         <p>Before that, I studied Chemical Engineering at <strong>Sungkyunkwan University</strong> (B.S., then M.S. with Changhyun Pang), engineering octopus-inspired adhesives for skin- and organ-attachable patches, bioelectronics and soft robotics.</p>
 
         <div class="bio__grid">
@@ -203,78 +201,6 @@
       </ul>
     </section>
 
-    <!-- ============================== RESEARCH HIGHLIGHT ============================== -->
-    <section class="block" id="research" aria-labelledby="research-title">
-      <h2 class="h2" id="research-title" data-reveal>Research highlight</h2>
-      <p class="block__lede" data-reveal>
-        <strong>ARTIST</strong> (Aptamer-Regulated Transcription for In vitro Sensing and Transduction) borrows a trick from
-        gene regulation: a DNA aptamer built into a transcription template acts as the binding site. When the target protein
-        binds, transcription is repressed, so the RNA output reports how much protein is there. Recognition and signal
-        processing are decoupled, so swapping the aptamer retargets the sensor without redesigning the circuit. Try it:
-      </p>
-
-      <div class="artist" data-reveal>
-        <div class="artist__stage">
-          <div class="artist__stage-head">
-            <span class="chip chip--live"><span class="live-dot" aria-hidden="true"></span>Interactive</span>
-            <span class="artist__hint">Add target protein, swap aptamers, change the circuit</span>
-          </div>
-          <div class="artist__viewport">
-            <canvas id="artist-canvas" class="artist__canvas" role="img"
-              aria-label="Animated schematic: RNA polymerases transcribe DNA templates and release RNA output that lights up fluorescent reporters. Target proteins that bind the aptamer on a template block its transcription."></canvas>
-          </div>
-          <ul class="artist__legend" aria-hidden="true">
-            <li><i class="lg lg--promoter"></i>Promoter</li>
-            <li><i class="lg lg--aptamer"></i>Aptamer</li>
-            <li><i class="lg lg--protein"></i>Target protein</li>
-            <li><i class="lg lg--pol"></i>RNA polymerase</li>
-            <li><i class="lg lg--rna"></i>RNA output</li>
-          </ul>
-        </div>
-
-        <div class="artist__panel">
-          <div class="artist__control">
-            <div class="artist__label-row">
-              <label for="artist-conc">Target protein</label>
-              <output id="artist-conc-label" for="artist-conc">Medium</output>
-            </div>
-            <input type="range" id="artist-conc" min="0" max="100" value="42" step="1" aria-describedby="artist-conc-help">
-            <div class="artist__scale" id="artist-conc-help"><span>none</span><span>log [target]</span><span>lots</span></div>
-          </div>
-          <div class="artist__control">
-            <span class="artist__label" id="artist-target-label">Swap the aptamer</span>
-            <div class="chips artist-targets" role="radiogroup" aria-labelledby="artist-target-label">
-              <button type="button" role="radio" aria-checked="true" data-target="thrombin">Thrombin</button>
-              <button type="button" role="radio" aria-checked="false" data-target="il6" tabindex="-1">IL‑6</button>
-              <button type="button" role="radio" aria-checked="false" data-target="tnfa" tabindex="-1">TNF‑α</button>
-              <button type="button" role="radio" aria-checked="false" data-target="ifng" tabindex="-1">IFN‑γ</button>
-            </div>
-          </div>
-          <div class="artist__control">
-            <span class="artist__label" id="artist-mode-label">Downstream circuit</span>
-            <div class="segmented artist-mode" role="radiogroup" aria-labelledby="artist-mode-label">
-              <button type="button" role="radio" aria-checked="true" data-mode="analog">Analog</button>
-              <button type="button" role="radio" aria-checked="false" data-mode="digital" tabindex="-1">Digital</button>
-            </div>
-          </div>
-          <div class="artist__readout">
-            <div class="artist__meter" aria-hidden="true"><div class="artist__meter-fill" id="artist-meter"></div></div>
-            <div class="artist__value"><span id="artist-output">68</span><small>%</small></div>
-            <div class="artist__value-label">relative RNA output<br><span id="artist-status">Mostly on</span></div>
-          </div>
-          <svg id="artist-chart" class="artist__chart" viewBox="0 0 320 170" role="img" aria-label="Schematic dose–response curves: RNA output falls as target concentration rises; the digital circuit switches more sharply than the analog one."></svg>
-          <p class="artist__note">Schematic simulation for illustration. See the paper for measured data.</p>
-        </div>
-      </div>
-
-      <div class="artist__links" data-reveal>
-        <a class="link-chip" href="https://doi.org/10.1038/s41467-024-51907-4" target="_blank" rel="noopener"><svg class="i"><use href="#i-doc"/></svg>Paper</a>
-        <a class="link-chip" href="https://github.com/hlee260/ARTIST" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg>Simulation code</a>
-        <a class="link-chip" href="https://github.com/hlee260/ARTIST-Source-Data" target="_blank" rel="noopener"><svg class="i"><use href="#i-data"/></svg>Source data</a>
-        <a class="link-chip" href="https://github.com/hlee260/ARTIST-Integration-Companion" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg>Integration Companion</a>
-      </div>
-    </section>
-
     <!-- ============================== PUBLICATIONS ============================== -->
     <section class="block" id="publications" aria-labelledby="pubs-title">
       <div class="block__head" data-reveal>
@@ -285,7 +211,7 @@
       <h3 class="h3 h3--rule" data-reveal>First-author</h3>
       <ol class="papers">
 
-        <li class="paper" data-reveal>
+        <li class="paper" id="paper-artist" data-reveal>
           <figure class="thumb">
             <button class="paper__zoom" type="button" aria-label="Enlarge figure: Plug-and-play protein biosensors">
               <img data-base="assets/figures/2024-ncomms-artist" src="assets/figures/2024-ncomms-artist.webp" alt="Main figure from Lee et al., Nature Communications 2024: the ARTIST biosensor design" loading="lazy" decoding="async" onload="hjFigure(this, true)" onerror="hjFigure(this)">
@@ -618,7 +544,6 @@
 
   <div class="toast" role="status" aria-live="polite" data-toast></div>
 
-  <script src="assets/js/artist.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
