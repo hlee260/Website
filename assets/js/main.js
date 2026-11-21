@@ -41,7 +41,7 @@
   onScroll();
 
   if (nav && 'IntersectionObserver' in window) {
-    var links = $$('.nav__links a', nav);
+    var links = $$('.nav__links a[href^="#"]', nav);
     var map = {};
     links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
     var spy = new IntersectionObserver(function (entries) {
