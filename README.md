@@ -12,9 +12,8 @@ CSS and JavaScript, so there is no build step: GitHub Pages serves it as-is.
   (click to enlarge), plus co-authored papers, the book chapter and patents.
 - Talks and posters, honors and awards, peer review (linked to ORCID), code and data, press,
   and contact.
-- White and navy by default, with an optional deep-navy dark mode (circular-reveal switch).
-  Responsive, keyboard accessible, honors `prefers-reduced-motion`. Self-hosted fonts; no
-  trackers or CDNs.
+- White and navy. Responsive, keyboard accessible, honors `prefers-reduced-motion`.
+  Self-hosted fonts; no trackers or CDNs.
 
 ## Structure
 
@@ -23,9 +22,9 @@ index.html              ← all page content lives here
 404.html                ← self-contained "page not found"
 assets/
   css/style.css         ← design tokens (colors, type) at the top, then components
-  js/main.js            ← nav, theme, reveal, lightbox, email, footer easter egg
+  js/main.js            ← nav, reveal, lightbox, email, footer easter egg
   fonts/                ← WOFF fonts + licences
-  img/                  ← avatar + full photo, favicon, social card, grain texture
+  img/                  ← avatar + full photo, favicon, social card
   figures/              ← publication figures (see figures/README.md)
 ```
 

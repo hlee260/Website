@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Site interactions: reveal, nav, theme, lightbox (figures + photo), email,
+   Site interactions: reveal, nav, lightbox (figures + photo), email,
    DNA-encoded footer.
    ========================================================================== */
 (function () {
@@ -77,38 +77,6 @@
     var desk = window.matchMedia('(min-width: 961px)');
     var onDesk = function (e) { if (e.matches) setMenu(false); };
     if (desk.addEventListener) desk.addEventListener('change', onDesk); else if (desk.addListener) desk.addListener(onDesk);
-  }
-
-  /* ---------- theme toggle (circular reveal where supported) ---------- */
-  var themeBtn = $('[data-theme-toggle]');
-  var metaTheme = $('meta[name="theme-color"]');
-  function labelTheme() {
-    var t = root.getAttribute('data-theme');
-    if (themeBtn) themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-    if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0b1730' : '#ffffff');
-  }
-  function applyTheme(t) {
-    root.setAttribute('data-theme', t);
-    try { localStorage.setItem('hj-theme', t); } catch (e) {}
-    labelTheme();
-    document.dispatchEvent(new CustomEvent('hj:themechange', { detail: t }));
-  }
-  labelTheme();
-  if (themeBtn) {
-    themeBtn.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      if (!document.startViewTransition || reduce.matches) { applyTheme(next); return; }
-      var r = themeBtn.getBoundingClientRect();
-      var x = r.left + r.width / 2, y = r.top + r.height / 2;
-      var rad = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
-      var vt = document.startViewTransition(function () { applyTheme(next); });
-      vt.ready.then(function () {
-        root.animate(
-          { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + rad + 'px at ' + x + 'px ' + y + 'px)'] },
-          { duration: 700, easing: 'cubic-bezier(.2,.75,.2,1)', pseudoElement: '::view-transition-new(root)' }
-        );
-      }).catch(function () {});
-    });
   }
 
   /* ---------- lightbox: publication figures + the full photo ---------- */
