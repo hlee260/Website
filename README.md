@@ -31,17 +31,16 @@ assets/
 
 ## Publish with GitHub Pages
 
-1. **Visibility:** this repository is private. On a free GitHub plan, Pages only works for
-   public repositories. Either make the repo public (Settings → General → Danger Zone →
-   Change visibility) or use GitHub Pro.
+1. **Visibility:** on a free GitHub plan, Pages only works for public repositories. If the
+   repo is private, either make it public (Settings → General → Danger Zone → Change
+   visibility) or use GitHub Pro.
 2. Settings → **Pages** → *Build and deployment* → Source: **Deploy from a branch** → choose
    the branch (e.g. `main`) and folder `/ (root)` → Save.
-3. The site will appear at `https://hlee260.github.io/Website/`.
-   - For the shorter `https://hlee260.github.io/`, rename the repository to
-     `hlee260.github.io`.
+3. Because the repository is named `hlee260.github.io`, the site appears at
+   `https://hlee260.github.io/`.
    - For a custom domain, add it under Settings → Pages → Custom domain.
-4. If the final URL differs from `https://hlee260.github.io/Website/`, update the two
-   `og:url` / `og:image` lines near the top of `index.html` so link previews work.
+4. If the final URL changes (e.g. a custom domain), update the two `og:url` / `og:image`
+   lines near the top of `index.html` so link previews work.
 
 ## Editing content
 
