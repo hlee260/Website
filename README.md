@@ -19,6 +19,7 @@ CSS and JavaScript, so there is no build step: GitHub Pages serves it as-is.
 
 ```
 index.html              ← all page content lives here
+Heonjoon_Lee_CV.pdf     ← CV, linked from the menu and the profile icons
 404.html                ← self-contained "page not found"
 assets/
   css/style.css         ← design tokens (colors, type) at the top, then components
@@ -50,6 +51,8 @@ Everything is plain HTML in `index.html`, organized by commented sections
   `<li class="pub">` line (co-authored).
 - **Add a figure:** see [`assets/figures/README.md`](assets/figures/README.md). Drop in a file
   with the right name and set its shape (`style="--ar: width / height"`) on the `<figure>`.
+- **Update the CV:** replace `Heonjoon_Lee_CV.pdf` with the new PDF under the same file name,
+  so existing links keep working.
 - **Change the portrait:** replace `assets/img/avatar-*.{webp,jpg}` (square crop) and
   `assets/img/photo-1200.{webp,jpg}` (full image shown on click).
 - **Colors and fonts:** edit the tokens at the top of `assets/css/style.css`.
