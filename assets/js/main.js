@@ -84,8 +84,8 @@
   var metaTheme = $('meta[name="theme-color"]');
   function labelTheme() {
     var t = root.getAttribute('data-theme');
-    if (themeBtn) themeBtn.setAttribute('aria-label', t === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
-    if (metaTheme) metaTheme.setAttribute('content', t === 'light' ? '#f7f6f1' : '#07090f');
+    if (themeBtn) themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0b1730' : '#ffffff');
   }
   function applyTheme(t) {
     root.setAttribute('data-theme', t);
@@ -96,7 +96,7 @@
   labelTheme();
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       if (!document.startViewTransition || reduce.matches) { applyTheme(next); return; }
       var r = themeBtn.getBoundingClientRect();
       var x = r.left + r.width / 2, y = r.top + r.height / 2;

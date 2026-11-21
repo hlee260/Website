@@ -15,8 +15,9 @@ CSS and JavaScript, so there is no build step: GitHub Pages serves it as-is.
 - **Publications:** first-author papers with figure thumbnails (click to enlarge), plus
   co-authored papers, the book chapter and patents.
 - Talks and posters, honors and awards, code and data, press, and contact.
-- Dark theme by default with a light theme (circular-reveal switch). Responsive, keyboard
-  accessible, honors `prefers-reduced-motion`. Self-hosted fonts; no trackers or CDNs.
+- White and navy by default, with an optional deep-navy dark mode (circular-reveal switch).
+  Responsive, keyboard accessible, honors `prefers-reduced-motion`. Self-hosted fonts; no
+  trackers or CDNs.
 
 ## Structure
 

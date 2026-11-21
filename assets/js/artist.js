@@ -85,7 +85,7 @@
   function readColors() {
     var cs = getComputedStyle(root);
     var v = function (n) { return cs.getPropertyValue(n).trim(); };
-    var dark = root.getAttribute('data-theme') !== 'light';
+    var dark = root.getAttribute('data-theme') === 'dark';
     var tcol = TARGETS[state.target][dark ? 'dark' : 'light'];
     C = {
       dark: dark,
@@ -93,7 +93,7 @@
       muted: hexToRgb(v('--muted')),
       faint: hexToRgb(v('--faint')),
       rna: hexToRgb(v('--nt-u')),
-      glow: hexToRgb(v('--nt-a')),
+      glow: hexToRgb(v('--reporter') || v('--nt-a')),
       bg: hexToRgb(v('--bg')),
       target: hexToRgb(tcol),
       targetHex: tcol
