@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Site interactions: reveal, nav, theme, scramble text, counters, filters,
-   lightbox, email, spotlight cards, talk barcodes, DNA-encoded footer.
+   Site interactions: reveal, nav, theme, scramble text, lightbox (figures +
+   illustration), email, DNA-encoded footer.
    ========================================================================== */
 (function () {
   'use strict';
@@ -18,7 +18,7 @@
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
     els.forEach(function (el) { io.observe(el); });
     window.addEventListener('beforeprint', function () { root.classList.add('reveal-all'); });
   })();
@@ -46,7 +46,6 @@
     var links = $$('.nav__links a', nav);
     var map = {};
     links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
-    map.code = map.publications;
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
@@ -54,7 +53,7 @@
         var a = map[en.target.id];
         if (a) a.classList.add('is-active');
       });
-    }, { rootMargin: '-45% 0px -50% 0px' });
+    }, { rootMargin: '-40% 0px -55% 0px' });
     $$('main section[id]').forEach(function (s) { spy.observe(s); });
   }
 
@@ -86,7 +85,7 @@
   function labelTheme() {
     var t = root.getAttribute('data-theme');
     if (themeBtn) themeBtn.setAttribute('aria-label', t === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
-    if (metaTheme) metaTheme.setAttribute('content', t === 'light' ? '#f6f5f0' : '#06080e');
+    if (metaTheme) metaTheme.setAttribute('content', t === 'light' ? '#f7f6f1' : '#07090f');
   }
   function applyTheme(t) {
     root.setAttribute('data-theme', t);
@@ -144,7 +143,6 @@
     if (!el) return;
     var words = (el.getAttribute('data-words') || '').split(',').filter(Boolean);
     if (words.length < 2) return;
-    // screen readers get the whole idea once, not a ticking word
     el.setAttribute('aria-hidden', 'true');
     var sr = document.createElement('span');
     sr.className = 'sr-only';
@@ -159,58 +157,17 @@
     setTimeout(next, 2600);
   })();
 
-  /* ---------- count-up stats ---------- */
-  (function () {
-    // Real numbers stay in the DOM; the count-up only runs once a stat is on screen.
-    var nums = $$('[data-count]');
-    if (!nums.length || reduce.matches || !('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        io.unobserve(en.target);
-        var el = en.target, to = +el.getAttribute('data-count'), t0 = performance.now(), dur = 1300;
-        (function step(t) {
-          var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(to * e);
-          if (p < 1) requestAnimationFrame(step);
-        })(t0);
-      });
-    }, { threshold: 0.6 });
-    nums.forEach(function (n) { io.observe(n); });
-  })();
-
-  /* ---------- publication filters ---------- */
-  (function () {
-    var btns = $$('[data-filter]');
-    var pubs = $$('.pub');
-    btns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var f = btn.getAttribute('data-filter');
-        btns.forEach(function (b) {
-          var on = b === btn;
-          b.classList.toggle('is-active', on);
-          b.setAttribute('aria-pressed', on ? 'true' : 'false');
-        });
-        pubs.forEach(function (p) {
-          var show = f === 'all' || (f === 'first' ? p.hasAttribute('data-first') : p.getAttribute('data-cat') === f);
-          var was = p.classList.contains('is-hidden');
-          p.classList.toggle('is-hidden', !show);
-          if (show && was) { p.classList.remove('is-entering'); void p.offsetWidth; p.classList.add('is-entering'); }
-        });
-      });
-    });
-  })();
-
-  /* ---------- figure lightbox ---------- */
+  /* ---------- lightbox: publication figures + the full illustration ---------- */
   (function () {
     var lb = $('[data-lightbox]');
     if (!lb) return;
     var img = $('[data-lightbox-img]', lb), cap = $('[data-lightbox-cap]', lb), closeBtn = $('.lightbox__close', lb);
     var last = null;
-    function open(src, alt, caption) {
+    function open(src, alt, caption, isFigure) {
       last = document.activeElement;
       img.src = src; img.alt = alt || '';
       cap.innerHTML = caption || '';
+      lb.classList.toggle('is-figure', !!isFigure);
       lb.hidden = false;
       document.body.style.overflow = 'hidden';
       closeBtn.focus();
@@ -226,9 +183,16 @@
         var fig = btn.closest('figure');
         if (!fig || !fig.classList.contains('has-image')) return;
         var im = $('img', btn), fc = $('figcaption', fig);
-        open(im.currentSrc || im.src, im.alt, fc ? fc.innerHTML : '');
+        open(im.currentSrc || im.src, im.alt, fc ? fc.innerHTML : '', true);
       });
     });
+    var ill = $('[data-illustration]');
+    if (ill) {
+      var webp = document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
+      ill.addEventListener('click', function () {
+        open('assets/img/illustration-1200.' + (webp ? 'webp' : 'jpg'), 'Illustration of HJ holding a black-and-white kitten by a sunny window', 'HJ, with feline co-investigator', false);
+      });
+    }
     $$('[data-lightbox-close]', lb).forEach(function (el) { el.addEventListener('click', close); });
     document.addEventListener('keydown', function (e) {
       if (lb.hidden) return;
@@ -268,32 +232,6 @@
     });
   });
 
-  /* ---------- spotlight cards ---------- */
-  if (window.matchMedia('(hover: hover)').matches) {
-    $$('[data-spotlight]').forEach(function (el) {
-      el.addEventListener('pointermove', function (e) {
-        var r = el.getBoundingClientRect();
-        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
-      });
-    });
-  }
-
-  /* ---------- conference-badge barcodes from each talk title ---------- */
-  function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
-  $$('.talk').forEach(function (t) {
-    var bc = $('.talk__barcode', t), title = $('.talk__title', t);
-    if (!bc || !title) return;
-    var h = hash(title.textContent), x = 0, stops = [], cols = ['var(--nt-a)', 'var(--nt-c)', 'var(--nt-g)', 'var(--nt-u)'];
-    while (x < 100) {
-      h = Math.imul(h ^ (h >>> 13), 1274126177) >>> 0;
-      var w = 0.6 + (h % 5) * 0.45, gap = 0.5 + ((h >>> 8) % 4) * 0.5, c = cols[(h >>> 16) % 4];
-      stops.push(c + ' ' + x.toFixed(2) + '%', c + ' ' + (x + w).toFixed(2) + '%', 'transparent ' + (x + w).toFixed(2) + '%', 'transparent ' + (x + w + gap).toFixed(2) + '%');
-      x += w + gap;
-    }
-    bc.style.background = 'linear-gradient(90deg,' + stops.join(',') + ')';
-  });
-
   /* ---------- DNA-encoded footer message (2 bits per base) ---------- */
   (function () {
     var btn = $('[data-dna]');
@@ -306,7 +244,7 @@
       for (var k = 6; k >= 0; k -= 2) s += B[(c >> k) & 3];
       return s;
     });
-    function encoded(n) { // first n groups decoded, rest as bases
+    function encoded(n) {
       return groups.map(function (g, i) {
         if (i < n) return '<span class="dec">' + (msg[i] === ' ' ? '&nbsp;' : msg[i]) + '</span>';
         return g.split('').map(function (b) { return '<span class="n' + b + '">' + b + '</span>'; }).join('');
@@ -317,7 +255,6 @@
     function run(toDecoded) {
       clearInterval(timer);
       decoded = toDecoded;
-      out.classList.toggle('is-decoded', toDecoded);
       btn.setAttribute('aria-label', toDecoded ? 'Decoded message: ' + msg : 'A DNA-encoded message. Activate to decode.');
       if (reduce.matches) { out.innerHTML = encoded(toDecoded ? groups.length : 0); return; }
       var n = toDecoded ? 0 : groups.length;
@@ -327,18 +264,15 @@
         if (n <= 0 || n >= groups.length) clearInterval(timer);
       }, 55);
     }
-    // Hover decodes on desktop; tap/keyboard toggles. A click right after the
-    // hover that already decoded it (or a touch tap's emulated mouseenter) is ignored.
+    // Hover decodes on desktop; tap/keyboard toggles (a click right after hover-decode is ignored).
     btn.addEventListener('click', function () { if (Date.now() - hoverAt > 700) run(!decoded); });
     btn.addEventListener('mouseenter', function () { if (!decoded) { hoverAt = Date.now(); run(true); } });
     btn.addEventListener('mouseleave', function () { if (decoded) run(false); });
   })();
 
-  /* ---------- small things ---------- */
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
   try {
     console.log('%c5′-ATGGCTAGC…-3′  hello, curious one 🧬', 'color:#6ef2c8;font:600 14px ui-monospace,monospace');
-    console.log('%cThis site is hand-built: no frameworks, one canvas helix, and a tiny transcription simulator.', 'color:#a3abbe;font:12px ui-monospace,monospace');
   } catch (e) {}
 })();
