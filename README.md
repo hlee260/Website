@@ -10,7 +10,7 @@ CSS and JavaScript, so there is no build step: GitHub Pages serves it as-is.
   links, plus the biography, interests and education.
 - **Publications:** first-author papers with their TOC graphics, figures and issue cover
   (click to enlarge), plus co-authored papers, the book chapter and patents.
-- Talks and posters, honors and awards, peer review (linked to ORCID), code and data, press,
+- Talks and posters, honors and awards, peer review (linked to ORCID), code and software,
   and contact.
 - White and navy. Responsive, keyboard accessible, honors `prefers-reduced-motion`.
   Self-hosted fonts; no trackers or CDNs.
@@ -22,7 +22,7 @@ index.html              ← all page content lives here
 404.html                ← self-contained "page not found"
 assets/
   css/style.css         ← design tokens (colors, type) at the top, then components
-  js/main.js            ← nav, reveal, lightbox, email, footer easter egg
+  js/main.js            ← nav, reveal, lightbox, email
   fonts/                ← WOFF fonts + licences
   img/                  ← avatar + full photo, favicon, social card
   figures/              ← publication figures (see figures/README.md)
@@ -44,7 +44,7 @@ assets/
 ## Editing content
 
 Everything is plain HTML in `index.html`, organized by commented sections
-(`ABOUT`, `PUBLICATIONS`, `TALKS`, `AWARDS`, `PEER REVIEW`, `CODE, DATA & PRESS`, `CONTACT`).
+(`ABOUT`, `PUBLICATIONS`, `TALKS`, `AWARDS`, `PEER REVIEW`, `CODE & SOFTWARE`, `CONTACT`).
 
 - **Add a publication:** copy a `<li class="paper">` block (first-author, with figure) or a
   `<li class="pub">` line (co-authored).

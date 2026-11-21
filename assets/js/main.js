@@ -1,12 +1,10 @@
 /* ==========================================================================
-   Site interactions: reveal, nav, lightbox (figures + photo), email,
-   DNA-encoded footer.
+   Site interactions: reveal, nav, lightbox (figures + photo), email.
    ========================================================================== */
 (function () {
   'use strict';
 
   var root = document.documentElement;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return [].slice.call((c || document).querySelectorAll(s)); };
 
@@ -113,7 +111,7 @@
     if (ill) {
       var webp = document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
       ill.addEventListener('click', function () {
-        open('assets/img/photo-1200.' + (webp ? 'webp' : 'jpg'), 'HJ Lee smiling, holding a small black-and-white kitten', 'HJ, with feline co-investigator', false);
+        open('assets/img/photo-1200.' + (webp ? 'webp' : 'jpg'), 'HJ Lee smiling, holding a small black-and-white kitten', '', false);
       });
     }
     $$('[data-lightbox-close]', lb).forEach(function (el) { el.addEventListener('click', close); });
@@ -125,77 +123,11 @@
   })();
 
   /* ---------- email (assembled on interaction to deter scrapers) ---------- */
-  var toastEl = $('[data-toast]'), toastT = 0;
-  function toast(msg) {
-    if (!toastEl) return;
-    toastEl.textContent = msg;
-    toastEl.classList.add('is-on');
-    clearTimeout(toastT);
-    toastT = setTimeout(function () { toastEl.classList.remove('is-on'); }, 2200);
-  }
   function addr(el) { return el.getAttribute('data-user') + '@' + el.getAttribute('data-domain'); }
   $$('[data-email]').forEach(function (a) {
     var arm = function () { a.setAttribute('href', 'mailto:' + addr(a)); };
     ['pointerenter', 'focus', 'touchstart', 'click'].forEach(function (ev) { a.addEventListener(ev, arm, { passive: true }); });
   });
-  $$('[data-copy-email]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var t = addr(b);
-      function fallback() {
-        var ta = document.createElement('textarea');
-        ta.value = t; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
-        document.body.appendChild(ta); ta.select();
-        var ok = false;
-        try { ok = document.execCommand('copy'); } catch (e) {}
-        document.body.removeChild(ta);
-        toast(ok ? 'Copied ' + t : t);
-      }
-      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(function () { toast('Copied ' + t); }, fallback);
-      else fallback();
-    });
-  });
-
-  /* ---------- DNA-encoded footer message (2 bits per base) ---------- */
-  (function () {
-    var btn = $('[data-dna]');
-    if (!btn) return;
-    var out = $('[data-dna-out]', btn);
-    var msg = btn.getAttribute('data-dna');
-    var B = 'ACGT';
-    var groups = msg.split('').map(function (ch) {
-      var c = ch.charCodeAt(0), s = '';
-      for (var k = 6; k >= 0; k -= 2) s += B[(c >> k) & 3];
-      return s;
-    });
-    function encoded(n) {
-      return groups.map(function (g, i) {
-        if (i < n) return '<span class="dec">' + (msg[i] === ' ' ? '&nbsp;' : msg[i]) + '</span>';
-        return g.split('').map(function (b) { return '<span class="n' + b + '">' + b + '</span>'; }).join('');
-      }).join('');
-    }
-    out.innerHTML = encoded(0);
-    var decoded = false, timer = 0, hoverAt = 0;
-    function run(toDecoded) {
-      clearInterval(timer);
-      decoded = toDecoded;
-      btn.setAttribute('aria-label', toDecoded ? 'Decoded message: ' + msg : 'A DNA-encoded message. Activate to decode.');
-      if (reduce.matches) { out.innerHTML = encoded(toDecoded ? groups.length : 0); return; }
-      var n = toDecoded ? 0 : groups.length;
-      timer = setInterval(function () {
-        n += toDecoded ? 1 : -1;
-        out.innerHTML = encoded(n);
-        if (n <= 0 || n >= groups.length) clearInterval(timer);
-      }, 55);
-    }
-    // Hover decodes on desktop; tap/keyboard toggles (a click right after hover-decode is ignored).
-    btn.addEventListener('click', function () { if (Date.now() - hoverAt > 700) run(!decoded); });
-    btn.addEventListener('mouseenter', function () { if (!decoded) { hoverAt = Date.now(); run(true); } });
-    btn.addEventListener('mouseleave', function () { if (decoded) run(false); });
-  })();
 
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
-
-  try {
-    console.log('%c5′-ATGGCTAGC…-3′  hello, curious one 🧬', 'color:#6ef2c8;font:600 14px ui-monospace,monospace');
-  } catch (e) {}
 })();
