@@ -6,7 +6,7 @@ CSS and JavaScript, so there is no build step: GitHub Pages serves it as-is.
 
 **What's on the page**
 
-- **About:** illustrated portrait (click it to see the full illustration), name, role and
+- **About:** portrait (click it to see the full photo), name, role and
   links, plus the biography, interests and education.
 - **News:** a dated list of recent milestones.
 - **Research highlight:** an **interactive ARTIST explainer**. Drag the target concentration,
@@ -28,7 +28,7 @@ assets/
   js/artist.js          ← interactive ARTIST explainer
   js/main.js            ← nav, theme, reveal, lightbox, email, footer easter egg
   fonts/                ← WOFF fonts + licences
-  img/                  ← avatar + full illustration, favicon, social card, grain texture
+  img/                  ← avatar + full photo, favicon, social card, grain texture
   figures/              ← publication figures (see figures/README.md)
 ```
 
@@ -58,7 +58,7 @@ Everything is plain HTML in `index.html`, organized by commented sections
 - **Add a figure:** see [`assets/figures/README.md`](assets/figures/README.md). Drop in a file
   with the right name and it appears automatically.
 - **Change the portrait:** replace `assets/img/avatar-*.{webp,jpg}` (square crop) and
-  `assets/img/illustration-1200.{webp,jpg}` (full image shown on click).
+  `assets/img/photo-1200.{webp,jpg}` (full image shown on click).
 - **Colors and fonts:** edit the tokens at the top of `assets/css/style.css`.
 - **Email:** assembled in the browser from `data-user` / `data-domain` to deter scrapers.
 
@@ -70,7 +70,7 @@ python3 -m http.server 8000   # then open http://localhost:8000
 
 ## Credits
 
-Illustrated portrait provided by Heonjoon Lee. Publication figures © their respective
+Portrait © Heonjoon Lee. Publication figures © their respective
 publishers/authors as noted under each figure. Fonts: Instrument Sans and Instrument Serif
 (© The Instrument Sans/Serif Project Authors), JetBrains Mono (© The JetBrains Mono Project
 Authors), all under the SIL Open Font License 1.1 (see `assets/fonts/`).

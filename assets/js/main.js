@@ -1,6 +1,6 @@
 /* ==========================================================================
    Site interactions: reveal, nav, theme, scramble text, lightbox (figures +
-   illustration), email, DNA-encoded footer.
+   photo), email, DNA-encoded footer.
    ========================================================================== */
 (function () {
   'use strict';
@@ -157,7 +157,7 @@
     setTimeout(next, 2600);
   })();
 
-  /* ---------- lightbox: publication figures + the full illustration ---------- */
+  /* ---------- lightbox: publication figures + the full photo ---------- */
   (function () {
     var lb = $('[data-lightbox]');
     if (!lb) return;
@@ -186,11 +186,11 @@
         open(im.currentSrc || im.src, im.alt, fc ? fc.innerHTML : '', true);
       });
     });
-    var ill = $('[data-illustration]');
+    var ill = $('[data-photo]');
     if (ill) {
       var webp = document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
       ill.addEventListener('click', function () {
-        open('assets/img/illustration-1200.' + (webp ? 'webp' : 'jpg'), 'Illustration of HJ holding a black-and-white kitten by a sunny window', 'HJ, with feline co-investigator', false);
+        open('assets/img/photo-1200.' + (webp ? 'webp' : 'jpg'), 'HJ Lee smiling, holding a small black-and-white kitten', 'HJ, with feline co-investigator', false);
       });
     }
     $$('[data-lightbox-close]', lb).forEach(function (el) { el.addEventListener('click', close); });
