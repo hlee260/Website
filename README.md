@@ -1,17 +1,17 @@
 # Heonjoon (HJ) Lee: personal website
 
 A hand-built, dependency-free academic homepage in the spirit of the Hugo Academic layout
-(profile and biography, news, publications with figures, talks, awards). It's plain HTML,
+(profile and biography, publications with figures, talks, awards, peer review). It's plain HTML,
 CSS and JavaScript, so there is no build step: GitHub Pages serves it as-is.
 
 **What's on the page**
 
 - **About:** portrait (click it to see the full photo), name, role and
   links, plus the biography, interests and education.
-- **News:** a dated list of recent milestones.
 - **Publications:** first-author papers with figure thumbnails (click to enlarge), plus
   co-authored papers, the book chapter and patents.
-- Talks and posters, honors and awards, code and data, press, and contact.
+- Talks and posters, honors and awards, peer review (linked to ORCID), code and data, press,
+  and contact.
 - White and navy by default, with an optional deep-navy dark mode (circular-reveal switch).
   Responsive, keyboard accessible, honors `prefers-reduced-motion`. Self-hosted fonts; no
   trackers or CDNs.
@@ -46,9 +46,8 @@ assets/
 ## Editing content
 
 Everything is plain HTML in `index.html`, organized by commented sections
-(`ABOUT`, `NEWS`, `PUBLICATIONS`, `TALKS`, `AWARDS`, `CODE, DATA & PRESS`, `CONTACT`).
+(`ABOUT`, `PUBLICATIONS`, `TALKS`, `AWARDS`, `PEER REVIEW`, `CODE, DATA & PRESS`, `CONTACT`).
 
-- **Add news:** copy a `<li><time>…</time><p>…</p></li>` line at the top of the News list.
 - **Add a publication:** copy a `<li class="paper">` block (first-author, with figure) or a
   `<li class="pub">` line (co-authored).
 - **Add a figure:** see [`assets/figures/README.md`](assets/figures/README.md). Drop in a file

@@ -1,7 +1,7 @@
 /* ==========================================================================
    Heonjoon (HJ) Lee — academic homepage
-   Layout in the spirit of Hugo Academic (profile + biography, news,
-   publications with figures, talks, awards). Dark by default, light theme.
+   Layout in the spirit of Hugo Academic (profile + biography,
+   publications with figures, talks, awards, peer review). Dark by default, light theme.
    Fonts (self-hosted, SIL OFL): Instrument Serif, Instrument Sans, JetBrains Mono
    ========================================================================== */
 
@@ -305,9 +305,9 @@ sup { font-size: .7em; line-height: 0; }
 .scramble__dot { color: var(--accent); }
 .bio > p:not(.bio__tagline) { color: var(--muted); font-size: 1.04rem; margin-bottom: 14px; max-width: 44em; }
 .bio strong { color: var(--text); font-weight: 700; }
-.bio a, .news a, .block__lede a { color: var(--text); border-bottom: 1px solid color-mix(in srgb, var(--accent) 65%, transparent); transition: color .2s; }
-.bio a:hover, .news a:hover, .block__lede a:hover { color: var(--accent); }
-.bio i, .news i { font-family: var(--font-serif); font-size: 1.06em; }
+.bio a { color: var(--text); border-bottom: 1px solid color-mix(in srgb, var(--accent) 65%, transparent); transition: color .2s; }
+.bio a:hover { color: var(--accent); }
+.bio i { font-family: var(--font-serif); font-size: 1.06em; }
 
 .bio__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 32px; margin-top: 10px; }
 .bio__grid .h3 { margin-top: 18px; margin-bottom: 12px; }
@@ -328,15 +328,7 @@ sup { font-size: .7em; line-height: 0; }
 .block__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
 .block__head .h2 { flex: 1; }
 .block__note { font-family: var(--font-mono); font-size: 12px; color: var(--faint); white-space: nowrap; margin-bottom: 22px; }
-.block__lede { color: var(--muted); font-size: 1.04rem; max-width: 52em; margin-bottom: 22px; }
-.block__lede strong { color: var(--text); }
 
-/* News */
-.news { border-top: 1px solid var(--line); }
-.news li { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 16px; padding: 12px 4px; border-bottom: 1px solid var(--line); }
-.news time { font-family: var(--font-mono); font-size: 12.5px; color: var(--accent); padding-top: 3px; white-space: nowrap; }
-.news p { font-size: 15.5px; color: var(--muted); }
-.news b { color: var(--text); font-weight: 700; }
 
 /* ---------- Publications ---------- */
 .papers li.paper {
@@ -448,7 +440,6 @@ a.simple__title:hover { color: var(--accent); }
 .rows__title { font-size: 15.5px; font-weight: 700; line-height: 1.4; }
 .rows__meta { font-size: 14px; color: var(--muted); }
 .rows__meta i { font-family: var(--font-serif); font-size: 1.06em; }
-.rows--awards li.is-major .rows__title::before { content: "★ "; color: var(--gold); }
 .amount { display: inline-block; margin-left: 6px; vertical-align: 1px; padding: 1px 7px; border-radius: 5px; font-family: var(--font-mono); font-size: 11px; font-weight: 400; color: var(--gold); background: color-mix(in srgb, var(--gold) 12%, transparent); }
 
 /* Code, data & press */
@@ -516,7 +507,7 @@ a.simple__title:hover { color: var(--accent); }
   body { font-size: 16px; }
   .nav__brand { font-size: 1.15rem; }
   .bio__grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .news li, .rows li { grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 12px 2px; }
+  .rows li { grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 12px 2px; }
   .papers li.paper { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 22px 0; }
   .thumb { max-width: 420px; }
   .cover__big { font-size: 2.2rem; }
