@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Heonjoon (HJ) Lee — Postdoctoral Scholar, Stanford</title>
+  <meta name="description" content="Heonjoon (HJ) Lee is a postdoctoral scholar at Stanford designing RNA aptamers for small molecules. PhD, Johns Hopkins: molecular biosensors and DNA/RNA circuits, including ARTIST, a plug-and-play protein biosensor platform.">
+  <meta name="author" content="Heonjoon Lee">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- Social preview. If the site moves (e.g. to hlee260.github.io), update these two URLs. -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Heonjoon (HJ) Lee — Postdoctoral Scholar, Stanford">
+  <meta property="og:description" content="RNA aptamers, molecular biosensors and DNA/RNA circuits.">
+  <meta property="og:url" content="https://hlee260.github.io/Website/">
+  <meta property="og:image" content="https://hlee260.github.io/Website/assets/img/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/instrument-serif-400.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-400.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    (function () {
+      var d = document.documentElement, t = 'light';
+      try { t = localStorage.getItem('hj-theme') || 'light'; } catch (e) {}
+      d.setAttribute('data-theme', t);
+      d.classList.add('js');
+      setTimeout(function () { if (!window.__hjReady) d.classList.add('reveal-all'); }, 2500);
+    })();
+    /* Figure loader: tries .webp → .jpg → .png, else keeps the designed cover. */
+    window.hjFigure = function (img, ok) {
+      var fig = img.closest('figure');
+      if (ok) { fig.classList.add('has-image'); fig.classList.remove('is-missing'); return; }
+      var exts = ['webp', 'jpg', 'png'];
+      var i = +(img.getAttribute('data-try') || 0) + 1;
+      if (i < exts.length) { img.setAttribute('data-try', i); img.src = img.getAttribute('data-base') + '.' + exts[i]; }
+      else fig.classList.add('is-missing');
+    };
+  </script>
+  <noscript><style>[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Heonjoon Lee",
+    "alternateName": "HJ Lee",
+    "jobTitle": "Postdoctoral Scholar",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "Stanford University" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Johns Hopkins University" },
+      { "@type": "CollegeOrUniversity", "name": "Sungkyunkwan University" }
+    ],
+    "knowsAbout": ["RNA aptamers", "RNA structure", "Molecular biosensors", "DNA nanotechnology", "Molecular programming", "Bioinspired adhesives"],
+    "sameAs": ["https://github.com/hlee260", "https://orcid.org/0000-0001-5129-5740"]
+  }
+  </script>
+</head>
+
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7.5 8 5.5 8-5.5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.8-6.5-11a6.5 6.5 0 0 1 13 0c0 5.2-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8.5 7.5-4.5 4.5 4.5 4.5M15.5 7.5 20 12l-4.5 4.5"/></symbol>
+    <symbol id="i-data" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.8"/><path d="M5 6v12c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8V6M5 12c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5M11 8.5v5M8.5 11h5"/></symbol>
+    <symbol id="i-news" viewBox="0 0 24 24"><rect x="3" y="5" width="15" height="15" rx="2"/><path d="M18 9h3v9a2 2 0 0 1-2 2M7 9h7M7 13h7M7 17h4"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2.5 9 12 4.5 21.5 9 12 13.5Z"/><path d="M6.5 11v4.5c0 1.6 2.5 3 5.5 3s5.5-1.4 5.5-3V11M21.5 9v5"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M4 20h16M9 20v-5h6v5M8 11h.01M12 11h.01M16 11h.01"/></symbol>
+    <symbol id="i-orcid" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M8.7 10v5.8M8.7 7.6v.1M11.6 10h2c1.9 0 3.1 1.2 3.1 2.9s-1.2 2.9-3.1 2.9h-2Z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-1.9c-3.12.68-3.78-1.5-3.78-1.5-.51-1.3-1.24-1.64-1.24-1.64-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.4-1.22.71-1.5-2.49-.28-5.11-1.25-5.11-5.55 0-1.22.44-2.23 1.16-3.01-.12-.29-.5-1.43.11-2.97 0 0 .94-.3 3.08 1.15a10.6 10.6 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.97.72.78 1.16 1.79 1.16 3.01 0 4.31-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
+  <header class="nav" data-nav>
+    <div class="nav__inner container">
+      <a class="nav__brand" href="#about">
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+          <path class="logo__s1" d="M11 4C11 10 21 10 21 16S11 22 11 28"/>
+          <path class="logo__s2" d="M21 4C21 10 11 10 11 16S21 22 21 28"/>
+          <path class="logo__rungs" d="M12.6 6.6h6.8M11.6 16h8.8M12.6 25.4h6.8"/>
+        </svg>
+        <span>Heonjoon (HJ) Lee</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#talks">Talks</a>
+        <a href="#awards">Awards</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch to dark theme" data-theme-toggle>
+          <svg class="i i--sun"><use href="#i-sun"/></svg>
+          <svg class="i i--moon"><use href="#i-moon"/></svg>
+        </button>
+        <button class="icon-btn nav__menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-btn>
+          <svg class="i i--menu"><use href="#i-menu"/></svg>
+          <svg class="i i--close"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" data-menu>
+      <nav aria-label="Mobile">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#talks">Talks</a>
+        <a href="#awards">Awards</a>
+        <a href="#code">Code &amp; data</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+
+    <!-- ============================== ABOUT ============================== -->
+    <section class="about" id="about" aria-labelledby="name">
+      <aside class="profile">
+        <div class="profile__avatar">
+          <div class="avatar-ring">
+            <button class="avatar" type="button" data-photo aria-label="View the full photo">
+              <picture>
+                <source type="image/webp" srcset="assets/img/avatar-420.webp 420w, assets/img/avatar-800.webp 800w" sizes="(max-width: 960px) 220px, 260px">
+                <img src="assets/img/avatar-800.jpg" srcset="assets/img/avatar-420.jpg 420w, assets/img/avatar-800.jpg 800w" sizes="(max-width: 960px) 220px, 260px" width="800" height="800" alt="HJ Lee smiling, holding a small black-and-white kitten" fetchpriority="high" decoding="async">
+              </picture>
+            </button>
+          </div>
+        </div>
+        <h1 class="profile__name" id="name">Heonjoon Lee <span class="profile__aka">HJ</span></h1>
+        <p class="profile__role">Postdoctoral Scholar</p>
+        <p class="profile__org">Stanford University</p>
+        <ul class="profile__links">
+          <li><a href="#contact" data-email data-user="hlee260" data-domain="stanford.edu" aria-label="Email"><svg class="i"><use href="#i-mail"/></svg></a></li>
+          <li><a href="https://github.com/hlee260" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg></a></li>
+          <li><a href="https://orcid.org/0000-0001-5129-5740" target="_blank" rel="noopener" aria-label="ORCID"><svg class="i"><use href="#i-orcid"/></svg></a></li>
+          <li><a href="#publications" aria-label="Publications"><svg class="i"><use href="#i-doc"/></svg></a></li>
+        </ul>
+        <p class="profile__where"><svg class="i"><use href="#i-pin"/></svg>Stanford, California</p>
+      </aside>
+
+      <div class="bio">
+        <h2 class="h2">Biography</h2>
+        <p class="bio__tagline">Programming nucleic acids to <span class="scramble" data-words="sense,compute,fold,signal">sense</span><span class="scramble__dot">.</span></p>
+        <p>I’m a postdoctoral scholar at <strong>Stanford University</strong>, where I combine computational structure prediction with experiments to design RNA aptamers that bind small-molecule ligands.</p>
+        <p>I completed my Ph.D. in Biomedical Engineering at <strong>Johns Hopkins University</strong> with Rebecca Schulman, building molecular biosensors, DNA/RNA networks and reaction cascades that compute on biomolecules. My dissertation introduced <a href="#paper-artist">ARTIST</a>, a plug-and-play platform that turns aptamer–protein binding into programmable transcriptional outputs (<a href="https://doi.org/10.1038/s41467-024-51907-4" target="_blank" rel="noopener"><i>Nature Communications</i>, 2024</a>).</p>
+        <p>Before that, I studied Chemical Engineering at <strong>Sungkyunkwan University</strong> (B.S., then M.S. with Changhyun Pang), engineering octopus-inspired adhesives for skin- and organ-attachable patches, bioelectronics and soft robotics.</p>
+
+        <div class="bio__grid">
+          <div>
+            <h3 class="h3">Interests</h3>
+            <ul class="interests">
+              <li>RNA aptamers &amp; small-molecule recognition</li>
+              <li>RNA structure prediction &amp; design</li>
+              <li>Molecular biosensors</li>
+              <li>DNA/RNA molecular programming</li>
+              <li>In vitro transcription circuits</li>
+              <li>Bioinspired materials</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="h3">Education</h3>
+            <ul class="education">
+              <li><svg class="i"><use href="#i-cap"/></svg><div><b>Ph.D. in Biomedical Engineering, 2026</b><span>Johns Hopkins University</span><a class="education__extra" href="https://jscholarship.library.jhu.edu/items/0e883e31-83d6-44ab-9103-a4a39bf27c9d" target="_blank" rel="noopener">Dissertation <svg class="i"><use href="#i-arrow"/></svg></a></div></li>
+              <li><svg class="i"><use href="#i-cap"/></svg><div><b>M.S. in Chemical Engineering, 2020</b><span>Sungkyunkwan University</span></div></li>
+              <li><svg class="i"><use href="#i-cap"/></svg><div><b>B.S. in Chemical Engineering, 2018</b><span>Sungkyunkwan University</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PUBLICATIONS ============================== -->
+    <section class="block" id="publications" aria-labelledby="pubs-title">
+      <div class="block__head" data-reveal>
+        <h2 class="h2" id="pubs-title">Publications</h2>
+        <p class="block__note"><sup>*</sup> equal contribution</p>
+      </div>
+
+      <h3 class="h3 h3--rule" data-reveal>First-author</h3>
+      <ol class="papers">
+
+        <li class="paper" id="paper-artist" data-reveal>
+          <figure class="thumb">
+            <button class="paper__zoom" type="button" aria-label="Enlarge figure: Plug-and-play protein biosensors">
+              <img data-base="assets/figures/2024-ncomms-artist" src="assets/figures/2024-ncomms-artist.webp" alt="Main figure from Lee et al., Nature Communications 2024: the ARTIST biosensor design" loading="lazy" decoding="async" onload="hjFigure(this, true)" onerror="hjFigure(this)">
+              <span class="paper__zoom-hint"><svg class="i"><use href="#i-zoom"/></svg></span>
+            </button>
+            <div class="cover cover--seq" aria-hidden="true"><span class="cover__journal">Nat. Commun.</span><span class="cover__big">ARTIST</span></div>
+            <figcaption class="paper__caption">Lee et al., <i>Nat. Commun.</i> <b>15</b>, 7973 (2024). CC BY 4.0.</figcaption>
+          </figure>
+          <div class="paper__body">
+            <a class="paper__title" href="https://doi.org/10.1038/s41467-024-51907-4" target="_blank" rel="noopener">Plug-and-play protein biosensors using aptamer-regulated in vitro transcription</a>
+            <p class="paper__authors"><b class="me">H. J. Lee</b>, T. Xie, B. Kang, X. Yu, S. W. Schaffter, R. Schulman</p>
+            <p class="paper__venue"><i>Nature Communications</i> 15, 7973 · 2024</p>
+            <p class="paper__tldr">Aptamers built into transcription templates repress transcription when their target binds, so swapping the aptamer retargets the sensor (thrombin, IL‑6, TNF‑α, IFN‑γ), with analog or digital readouts tunable over two orders of magnitude.</p>
+            <div class="paper__links">
+              <a class="tag-link" href="https://doi.org/10.1038/s41467-024-51907-4" target="_blank" rel="noopener">Paper</a>
+              <a class="tag-link" href="https://doi.org/10.1101/2023.08.10.552680" target="_blank" rel="noopener">Preprint</a>
+              <a class="tag-link" href="https://github.com/hlee260/ARTIST" target="_blank" rel="noopener">Code</a>
+              <a class="tag-link" href="https://github.com/hlee260/ARTIST-Source-Data" target="_blank" rel="noopener">Data</a>
+              <span class="badge badge--accent">Open access</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="paper" data-reveal>
+          <figure class="thumb">
+            <button class="paper__zoom" type="button" aria-label="Enlarge figure: Soft microdenticles on artificial octopus sucker">
+              <img data-base="assets/figures/2022-advsci-microdenticles" src="assets/figures/2022-advsci-microdenticles.webp" alt="Main figure from Hwang, Lee et al., Advanced Science 2022: artificial octopus sucker with soft microdenticles" loading="lazy" decoding="async" onload="hjFigure(this, true)" onerror="hjFigure(this)">
+              <span class="paper__zoom-hint"><svg class="i"><use href="#i-zoom"/></svg></span>
+            </button>
+            <div class="cover cover--sucker" aria-hidden="true"><span class="cover__journal">Adv. Sci.</span><span class="cover__big">≈49&nbsp;N</span></div>
+            <figcaption class="paper__caption">Hwang, Lee et al., <i>Adv. Sci.</i> <b>9</b>, 2202978 (2022). CC BY 4.0.</figcaption>
+          </figure>
+          <div class="paper__body">
+            <a class="paper__title" href="https://doi.org/10.1002/advs.202202978" target="_blank" rel="noopener">Soft microdenticles on artificial octopus sucker enable extraordinary adaptability and wet adhesion on diverse nonflat surfaces</a>
+            <p class="paper__authors">G. W. Hwang<sup>*</sup>, <b class="me">H. J. Lee</b><sup>*</sup>, D. W. Kim, T.-H. Yang, C. Pang</p>
+            <p class="paper__venue"><i>Advanced Science</i> 9, 2202978 · 2022</p>
+            <p class="paper__tldr">Soft, tooth-like microdenticles modeled on octopus suckers make a switchable adhesive that conforms to curved and rough surfaces: ≈29 N dry, ≈49 N wet and ≈17 N on very rough substrates.</p>
+            <div class="paper__links">
+              <a class="tag-link" href="https://doi.org/10.1002/advs.202202978" target="_blank" rel="noopener">Paper</a>
+              <a class="tag-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9631055/" target="_blank" rel="noopener">Free full text</a>
+              <span class="badge badge--cover">Issue cover</span>
+              <span class="badge">Co-first</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="paper" data-reveal>
+          <figure class="thumb">
+            <button class="paper__zoom" type="button" aria-label="Enlarge figure: Electronically perceptive soft wet-adhesion actuator">
+              <img data-base="assets/figures/2021-acsnano-perceptive-actuator" src="assets/figures/2021-acsnano-perceptive-actuator.webp" alt="Main figure from Lee, Baik, Hwang et al., ACS Nano 2021: octopus-inspired soft actuator with carbon-nanotube strain sensors" loading="lazy" decoding="async" onload="hjFigure(this, true)" onerror="hjFigure(this)">
+              <span class="paper__zoom-hint"><svg class="i"><use href="#i-zoom"/></svg></span>
+            </button>
+            <div class="cover cover--sucker cover--alt" aria-hidden="true"><span class="cover__journal">ACS Nano</span><span class="cover__big">Grip&nbsp;+&nbsp;feel</span></div>
+            <figcaption class="paper__caption">Lee, Baik, Hwang et al., <i>ACS Nano</i> <b>15</b>, 14137 (2021). © 2021 American Chemical Society.</figcaption>
+          </figure>
+          <div class="paper__body">
+            <a class="paper__title" href="https://doi.org/10.1021/acsnano.1c05130" target="_blank" rel="noopener">An electronically perceptive bioinspired soft wet-adhesion actuator with carbon nanotube-based strain sensors</a>
+            <p class="paper__authors"><b class="me">H. J. Lee</b><sup>*</sup>, S. Baik<sup>*</sup>, G. W. Hwang<sup>*</sup>, J. H. Song, D. W. Kim, T.-H. Yang, C. Pang</p>
+            <p class="paper__venue"><i>ACS Nano</i> 15, 14137–14148 · 2021</p>
+            <p class="paper__tldr">An octopus-inspired suction actuator that can feel what it holds: carbon-nanotube strain sensors across the sucker read out deformation, so the gripper adheres in wet conditions and recognizes objects.</p>
+            <div class="paper__links">
+              <a class="tag-link" href="https://doi.org/10.1021/acsnano.1c05130" target="_blank" rel="noopener">Paper</a>
+              <span class="badge">Co-first</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="paper" data-reveal>
+          <figure class="thumb">
+            <button class="paper__zoom" type="button" aria-label="Enlarge figure: 3D microelectrode array review">
+              <img data-base="assets/figures/2020-bios-3d-mea-review" src="assets/figures/2020-bios-3d-mea-review.webp" alt="Main figure from Choi, Lee et al., Biosensors and Bioelectronics 2020: overview of 3D microelectrode arrays for cardiac and neuronal interfaces" loading="lazy" decoding="async" onload="hjFigure(this, true)" onerror="hjFigure(this)">
+              <span class="paper__zoom-hint"><svg class="i"><use href="#i-zoom"/></svg></span>
+            </button>
+            <div class="cover cover--grid" aria-hidden="true"><span class="cover__journal">Biosens. Bioelectron.</span><span class="cover__big">3D&nbsp;MEAs</span></div>
+            <figcaption class="paper__caption">Choi, Lee et al., <i>Biosens. Bioelectron.</i> <b>171</b>, 112687 (2020). © 2020 Elsevier B.V.</figcaption>
+          </figure>
+          <div class="paper__body">
+            <a class="paper__title" href="https://doi.org/10.1016/j.bios.2020.112687" target="_blank" rel="noopener">Recent advances in three-dimensional microelectrode array technologies for in vitro and in vivo cardiac and neuronal interfaces</a>
+            <p class="paper__authors">J. S. Choi<sup>*</sup>, <b class="me">H. J. Lee</b><sup>*</sup>, S. Rajaraman, D.-H. Kim</p>
+            <p class="paper__venue"><i>Biosensors and Bioelectronics</i> 171, 112687 · 2020</p>
+            <p class="paper__tldr">A review of 3D microelectrode arrays for recording cardiac and neural electrophysiology in vitro, organized by geometry, materials and fabrication, and of their in vivo uses for heart and brain diagnostics and therapy.</p>
+            <div class="paper__links">
+              <a class="tag-link" href="https://doi.org/10.1016/j.bios.2020.112687" target="_blank" rel="noopener">Paper</a>
+              <a class="tag-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7665982/" target="_blank" rel="noopener">Free full text</a>
+              <span class="badge">Review</span>
+              <span class="badge">Co-first</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="paper" data-reveal>
+          <figure class="thumb">
+            <button class="paper__zoom" type="button" aria-label="Enlarge figure: Bioinspired adhesive architectures review">
+              <img data-base="assets/figures/2019-advmater-adhesive-review" src="assets/figures/2019-advmater-adhesive-review.webp" alt="Main figure from Baik, Lee et al., Advanced Materials 2019: bioinspired adhesive architectures from skin patches to bioelectronics" loading="lazy" decoding="async" onload="hjFigure(this, true)" onerror="hjFigure(this)">
+              <span class="paper__zoom-hint"><svg class="i"><use href="#i-zoom"/></svg></span>
+            </button>
+            <div class="cover cover--waves" aria-hidden="true"><span class="cover__journal">Adv. Mater.</span><span class="cover__big">Nature’s&nbsp;grip</span></div>
+            <figcaption class="paper__caption">Baik, Lee et al., <i>Adv. Mater.</i> <b>31</b>, 1803309 (2019). © 2019 Wiley-VCH.</figcaption>
+          </figure>
+          <div class="paper__body">
+            <a class="paper__title" href="https://doi.org/10.1002/adma.201803309" target="_blank" rel="noopener">Bioinspired adhesive architectures: from skin patch to integrated bioelectronics</a>
+            <p class="paper__authors">S. Baik<sup>*</sup>, <b class="me">H. J. Lee</b><sup>*</sup>, D. W. Kim, J. W. Kim, Y. Lee, C. Pang</p>
+            <p class="paper__venue"><i>Advanced Materials</i> 31, 1803309 · 2019</p>
+            <p class="paper__tldr">A review of how nature’s adhesive structures inform engineered ones (architectures, attachment physics, fabrication) and the medical devices they enable, from skin patches to integrated bioelectronics.</p>
+            <div class="paper__links">
+              <a class="tag-link" href="https://doi.org/10.1002/adma.201803309" target="_blank" rel="noopener">Paper</a>
+              <span class="badge">Review</span>
+              <span class="badge">Co-first</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="paper" data-reveal>
+          <figure class="thumb">
+            <button class="paper__zoom" type="button" aria-label="Enlarge figure: Capillarity-enhanced organ-attachable adhesive">
+              <img data-base="assets/figures/2019-acsami-capillarity-adhesive" src="assets/figures/2019-acsami-capillarity-adhesive.webp" alt="Main figure from Baik, Lee et al., ACS Applied Materials and Interfaces 2019: wrinkled octopus-inspired organ-attachable adhesive" loading="lazy" decoding="async" onload="hjFigure(this, true)" onerror="hjFigure(this)">
+              <span class="paper__zoom-hint"><svg class="i"><use href="#i-zoom"/></svg></span>
+            </button>
+            <div class="cover cover--waves cover--alt" aria-hidden="true"><span class="cover__journal">ACS AMI</span><span class="cover__big">Wet&nbsp;organs</span></div>
+            <figcaption class="paper__caption">Baik, Lee et al., <i>ACS Appl. Mater. Interfaces</i> <b>11</b>, 25674 (2019). © 2019 American Chemical Society.</figcaption>
+          </figure>
+          <div class="paper__body">
+            <a class="paper__title" href="https://doi.org/10.1021/acsami.9b05511" target="_blank" rel="noopener">A capillarity-enhanced organ-attachable adhesive with highly drainable wrinkled octopus-inspired architectures</a>
+            <p class="paper__authors">S. Baik<sup>*</sup>, <b class="me">H. J. Lee</b><sup>*</sup>, D. W. Kim, H. Min, C. Pang</p>
+            <p class="paper__venue"><i>ACS Applied Materials &amp; Interfaces</i> 11, 25674–25681 · 2019</p>
+            <p class="paper__tldr">Inspired by the soft wrinkles inside small octopus suckers, this patch drains interfacial liquid and uses capillarity to stick to wet organs (porcine heart and liver), while a soft siloxane layer grips dry and sweaty skin.</p>
+            <div class="paper__links">
+              <a class="tag-link" href="https://doi.org/10.1021/acsami.9b05511" target="_blank" rel="noopener">Paper</a>
+              <span class="badge badge--cover">Poster Award · ChinaNANO 2019</span>
+              <span class="badge">Co-first</span>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <h3 class="h3 h3--rule" data-reveal>Co-authored</h3>
+      <ol class="pubs" data-reveal>
+        <li class="pub">
+          <span class="pub__year">2026</span>
+          <div class="pub__main">
+            <a class="pub__title" href="https://doi.org/10.1038/s41467-026-77899-x" target="_blank" rel="noopener">Reaction enhancement via product scavenging and phase separation-driven pathway canalization</a>
+            <p class="pub__authors">B. Kang, <b class="me">H. J. Lee</b>, E. Kengmana, J. Y. Yea, D. W. Kim, R. Schulman</p>
+            <p class="pub__venue"><i>Nature Communications</i> (2026)</p>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="pub__year">2024</span>
+          <div class="pub__main">
+            <a class="pub__title" href="https://doi.org/10.1021/jacs.4c07259" target="_blank" rel="noopener">Directing nanoparticle organization in response to diverse chemical inputs</a>
+            <p class="pub__authors">Y. Xiong, C. Yancey, <b class="me">H. J. Lee</b>, E. Helm, B. Kang, A. Grinthal, D. G. Lee, D. McKeen, O. Gang, R. Schulman</p>
+            <p class="pub__venue"><i>Journal of the American Chemical Society</i> 146, 30802–30812 (2024)</p>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="pub__year">2021</span>
+          <div class="pub__main">
+            <a class="pub__title" href="https://doi.org/10.1126/sciadv.abf5695" target="_blank" rel="noopener">Diving beetle–like miniaturized plungers with reversible, rapid biofluid capturing for machine learning–based care of skin disease</a>
+            <p class="pub__authors">S. Baik<sup>*</sup>, J. Lee<sup>*</sup>, E. J. Jeon<sup>*</sup>, B.-Y. Park, D. W. Kim, J. H. Song, <b class="me">H. J. Lee</b>, S. Y. Han, S.-W. Cho, C. Pang</p>
+            <p class="pub__venue"><i>Science Advances</i> 7, eabf5695 (2021)</p>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="pub__year">2019</span>
+          <div class="pub__main">
+            <a class="pub__title" href="https://doi.org/10.1002/adfm.201905808" target="_blank" rel="noopener">Conductive hierarchical hairy fibers for highly sensitive, stretchable, and water-resistant multimodal gesture-distinguishable sensor, VR applications</a>
+            <p class="pub__authors">S. Choi<sup>*</sup>, K. Yoon<sup>*</sup>, S. Lee, <b class="me">H. J. Lee</b>, J. Lee, M. Kim, T. Lee, C. Pang</p>
+            <p class="pub__venue"><i>Advanced Functional Materials</i> 29, 1905808 (2019)</p>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="pub__year">2019</span>
+          <div class="pub__main">
+            <a class="pub__title" href="https://doi.org/10.1002/adfm.201807614" target="_blank" rel="noopener">Highly permeable skin patch with conductive hierarchical architectures inspired by amphibians and octopi for omnidirectionally enhanced wet adhesion</a>
+            <p class="pub__authors">D. W. Kim<sup>*</sup>, S. Baik<sup>*</sup>, H. Min, S. Chun, <b class="me">H. J. Lee</b>, K. H. Kim, J. Y. Lee, C. Pang</p>
+            <p class="pub__venue"><i>Advanced Functional Materials</i> 29, 1807614 (2019) <span class="pub__flag">Front cover</span></p>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="pub__year">2019</span>
+          <div class="pub__main">
+            <a class="pub__title" href="https://doi.org/10.1021/acsami.9b03204" target="_blank" rel="noopener">Carbon-based, ultraelastic, hierarchically coated fiber strain sensors with crack-controllable beads</a>
+            <p class="pub__authors">S. Jang<sup>*</sup>, J. Kim<sup>*</sup>, D. W. Kim, J. Kim, S. Chun, <b class="me">H. J. Lee</b>, G. Yi, C. Pang</p>
+            <p class="pub__venue"><i>ACS Applied Materials &amp; Interfaces</i> 11, 15079–15087 (2019)</p>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="pub__year">2019</span>
+          <div class="pub__main">
+            <a class="pub__title" href="https://doi.org/10.1021/acsami.9b01427" target="_blank" rel="noopener">Bioinspired hairy skin electronics for detecting the direction and incident angle of airflow</a>
+            <p class="pub__authors">S. Chun, W. Son, C. Choi, H. Min, J. Kim, <b class="me">H. J. Lee</b>, D. Kim, J. Koh, C. Pang</p>
+            <p class="pub__venue"><i>ACS Applied Materials &amp; Interfaces</i> 11, 13608–13615 (2019)</p>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="pub__year">2018</span>
+          <div class="pub__main">
+            <a class="pub__title" href="https://doi.org/10.1002/adfm.201805224" target="_blank" rel="noopener">Conductive and stretchable adhesive electronics with miniaturized octopus-like suckers against dry/wet skin for biosignal monitoring</a>
+            <p class="pub__authors">S. Chun<sup>*</sup>, D. W. Kim<sup>*</sup>, S. Baik, <b class="me">H. J. Lee</b>, J. H. Lee, S. H. Bhang, C. Pang</p>
+            <p class="pub__venue"><i>Advanced Functional Materials</i> 28, 1805224 (2018) <span class="pub__flag">Inside back cover</span></p>
+          </div>
+        </li>
+        <li class="pub">
+          <span class="pub__year">2018</span>
+          <div class="pub__main">
+            <a class="pub__title" href="https://doi.org/10.1002/advs.201800100" target="_blank" rel="noopener">Highly adaptable and biocompatible octopus-like adhesive patches with meniscus-controlled unfoldable 3D microtips for underwater surface and hairy skin</a>
+            <p class="pub__authors">S. Baik, J. Kim, <b class="me">H. J. Lee</b>, T. Lee, C. Pang</p>
+            <p class="pub__venue"><i>Advanced Science</i> 5, 1800100 (2018) <span class="pub__flag">Front cover</span></p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="two-col">
+        <div data-reveal>
+          <h3 class="h3 h3--rule">Book chapter</h3>
+          <ul class="simple">
+            <li>
+              <p class="simple__title">Bio-inspired adhesives for wearable electronics</p>
+              <p class="simple__meta"><b class="me">H. J. Lee</b>, S. Baik, C. Pang · <i>World Scientific Handbook of Organic Optoelectronic Devices, Vol. 4: Flexible Bioelectronics</i>, 347–376 (2022)</p>
+            </li>
+          </ul>
+        </div>
+        <div data-reveal>
+          <h3 class="h3 h3--rule">Patents</h3>
+          <ul class="simple">
+            <li>
+              <a class="simple__title" href="https://patents.google.com/patent/WO2024118806A1/en" target="_blank" rel="noopener">Aptamer regulated transcription for in-vitro sensing and transduction</a>
+              <p class="simple__meta">R. B. Schulman, <b class="me">H. J. Lee</b>, S. W. Schaffter · WO 2024/118806 A1 (2024)</p>
+            </li>
+            <li>
+              <a class="simple__title" href="https://patents.google.com/patent/US20210122065A1/en" target="_blank" rel="noopener">Pneumatic controlled soft gripper, manufacturing method thereof and article transport method using soft gripper</a>
+              <p class="simple__meta">C. Pang, <b class="me">H. J. Lee</b>, S. Baik, G. W. Hwang · US 2021/0122065 A1 (2021)</p>
+            </li>
+            <li>
+              <p class="simple__title">Soft gripper, manufacturing method thereof and article transport method using soft gripper</p>
+              <p class="simple__meta">C. Pang, <b class="me">H. J. Lee</b>, S. Baik, G. W. Hwang · KR 10-2019-0132095 (2019)</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TALKS ============================== -->
+    <section class="block" id="talks" aria-labelledby="talks-title">
+      <h2 class="h2" id="talks-title" data-reveal>Talks</h2>
+      <ul class="rows" data-reveal>
+        <li><time>Jun 2025</time><div><p class="rows__title">An automated workflow for designing modular and tunable molecular biosensors using aptamer-regulated transcription</p><p class="rows__meta">SEED 2025 · Synthetic Biology: Engineering, Evolution &amp; Design · Houston, TX</p></div></li>
+        <li><time>Sep 2024</time><div><p class="rows__title">Designing modular and tunable protein biosensors using aptamer-regulated transcription</p><p class="rows__meta">DNA30 · Johns Hopkins University, Baltimore, MD</p></div></li>
+        <li><time>Mar 2024</time><div><p class="rows__title">Modular and tunable protein biosensors using aptamer-regulated transcription</p><p class="rows__meta">Mid-Atlantic DNA Nanotechnology Symposium · Manassas, VA</p></div></li>
+        <li><time>Mar 2024</time><div><p class="rows__title">Aptamer-regulated transcription for modular and tunable protein biosensors</p><p class="rows__meta">ACS Spring 2024 · Many Flavors of Chemistry · New Orleans, LA</p></div></li>
+        <li><time>Oct 2023</time><div><p class="rows__title">Paint-and-play protein biosensors using ARTIST</p><p class="rows__meta">National Institute of Standards and Technology (NIST) · Gaithersburg, MD</p></div></li>
+      </ul>
+      <h3 class="h3 h3--rule" data-reveal>Posters</h3>
+      <ul class="rows" data-reveal>
+        <li><time>Aug 2019</time><div><p class="rows__title">A capillarity-enhanced skin adhesive with highly drainable wrinkled octopus-inspired architectures <span class="pub__flag">Poster Award</span></p><p class="rows__meta">ChinaNANO 2019 · Beijing, China</p></div></li>
+        <li><time>Feb 2019</time><div><p class="rows__title">Octopus-inspired adhesive architectures and skin electronics for diagnostics</p><p class="rows__meta">3rd SKKU–A*STAR RI Joint BioSymposium · Seoul, Korea</p></div></li>
+        <li><time>Nov 2018</time><div><p class="rows__title">Octopus-inspired adhesives and conductive skin electronics for bio-signal monitoring</p><p class="rows__meta">MRS Fall Meeting 2018 · Boston, MA · with S. Choi, D. W. Kim, C. Pang</p></div></li>
+      </ul>
+    </section>
+
+    <!-- ============================== AWARDS ============================== -->
+    <section class="block" id="awards" aria-labelledby="awards-title">
+      <h2 class="h2" id="awards-title" data-reveal>Honors &amp; awards</h2>
+      <ul class="rows rows--awards" data-reveal>
+        <li><time>2026</time><div><p class="rows__title">Schmidt Science Fellows, Finalist</p><p class="rows__meta">Schmidt Sciences</p></div></li>
+        <li><time>2025</time><div><p class="rows__title">Conference Travel Award</p><p class="rows__meta">American Institute of Chemical Engineers (AIChE)</p></div></li>
+        <li><time>2025</time><div><p class="rows__title">MOGAM-KASBP Scholarship <span class="amount">$5,000</span></p><p class="rows__meta">Korean American Society in Biotech and Pharmaceuticals</p></div></li>
+        <li><time>2021–23</time><div><p class="rows__title">Asan Foundation Biomedical Science Scholarship <span class="amount">$100,000</span></p><p class="rows__meta">Asan Foundation · three years</p></div></li>
+        <li><time>2019</time><div><p class="rows__title">Poster Award</p><p class="rows__meta">Presented by <i>Polymer</i> (Elsevier) · ChinaNANO 2019</p></div></li>
+        <li><time>2018</time><div><p class="rows__title">Dean’s List Award</p><p class="rows__meta">Sungkyunkwan University</p></div></li>
+        <li><time>2016</time><div><p class="rows__title">Academic Excellence Scholarship</p><p class="rows__meta">Sungkyunkwan University</p></div></li>
+      </ul>
+    </section>
+
+    <!-- ============================== PEER REVIEW ============================== -->
+    <section class="block" id="review" aria-labelledby="review-title">
+      <h2 class="h2" id="review-title" data-reveal>Peer review</h2>
+      <p class="review__lede" data-reveal>Reviewer for the journals below · <a href="https://orcid.org/0000-0001-5129-5740" target="_blank" rel="noopener">10 verified reviews on ORCID <svg class="i"><use href="#i-arrow"/></svg></a></p>
+      <ul class="rows rows--review" data-reveal>
+        <li><span class="rows__count">5 reviews</span><p class="rows__journal"><i>Journal of the American Chemical Society</i></p></li>
+        <li><span class="rows__count">2 reviews</span><p class="rows__journal"><i>Nature Communications</i></p></li>
+        <li><span class="rows__count">1 review</span><p class="rows__journal"><i>ACS Omega</i></p></li>
+        <li><span class="rows__count">1 review</span><p class="rows__journal"><i>ACS Synthetic Biology</i></p></li>
+        <li><span class="rows__count">1 review</span><p class="rows__journal"><i>Nano Letters</i></p></li>
+      </ul>
+    </section>
+
+    <!-- ============================== CODE, DATA & PRESS ============================== -->
+    <section class="block" id="code" aria-labelledby="code-title">
+      <div class="two-col">
+        <div data-reveal>
+          <h2 class="h2" id="code-title">Code &amp; data</h2>
+          <ul class="links-list">
+            <li><a href="https://github.com/hlee260/ARTIST" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg><span><b>ARTIST</b><em>Simulation code for aptamer-regulated transcription · Jupyter</em></span></a></li>
+            <li><a href="https://github.com/hlee260/ARTIST-Integration-Companion" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg><span><b>ARTIST-Integration-Companion</b><em>Software for the ARTIST Integration Companion · Python</em></span></a></li>
+            <li><a href="https://github.com/hlee260/ARTIST-Source-Data" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg><span><b>ARTIST-Source-Data</b><em>Raw fluorescence data, calibrated plate-reader data and scripts · Python</em></span></a></li>
+            <li><a href="https://github.com/hlee260/Eternabind_RawSHAPEdata_repository" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg><span><b>Eternabind_RawSHAPEdata_repository</b><em>Raw chemical mapping (SHAPE) data</em></span></a></li>
+            <li><a href="https://doi.org/10.7281/T1/IRL0IE" target="_blank" rel="noopener"><svg class="i"><use href="#i-data"/></svg><span><b>ARTIST Simulations</b><em>Johns Hopkins Research Data Repository · doi:10.7281/T1/IRL0IE</em></span></a></li>
+          </ul>
+        </div>
+        <div data-reveal>
+          <h2 class="h2">In the news</h2>
+          <ul class="links-list">
+            <li><a href="https://inbt.jhu.edu/heonjoon-lee-looking-to-develop-biosensors-using-molecular-circuits/" target="_blank" rel="noopener"><svg class="i"><use href="#i-news"/></svg><span><b>Heonjoon Lee looking to develop biosensors using molecular circuits</b><em>Johns Hopkins Institute for NanoBioTechnology</em></span></a></li>
+            <li><a href="https://inbt.jhu.edu/new-platform-being-developed-with-the-aim-to-make-biosensors-more-efficient/" target="_blank" rel="noopener"><svg class="i"><use href="#i-news"/></svg><span><b>New platform being developed with the aim to make biosensors more efficient</b><em>Johns Hopkins Institute for NanoBioTechnology</em></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CONTACT ============================== -->
+    <section class="block contact" id="contact" aria-labelledby="contact-title" data-reveal>
+      <h2 class="h2" id="contact-title">Contact</h2>
+      <p class="contact__text">Happy to chat about aptamers, molecular circuits and biosensors, or cats.</p>
+      <div class="contact__actions">
+        <a class="btn btn--primary" href="#contact" data-email data-user="hlee260" data-domain="stanford.edu"><svg class="i"><use href="#i-mail"/></svg>Email me</a>
+        <button class="btn btn--ghost" type="button" data-copy-email data-user="hlee260" data-domain="stanford.edu"><svg class="i"><use href="#i-copy"/></svg>Copy address</button>
+        <a class="btn btn--ghost" href="https://github.com/hlee260" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg>GitHub</a>
+        <a class="btn btn--ghost" href="https://orcid.org/0000-0001-5129-5740" target="_blank" rel="noopener"><svg class="i"><use href="#i-orcid"/></svg>ORCID</a>
+      </div>
+      <noscript><p class="contact__text">hlee260 [at] stanford [dot] edu</p></noscript>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <button class="footer__seq" type="button" data-dna="STAY CURIOUS" aria-label="A DNA-encoded message. Activate to decode.">
+        <span class="footer__end">5′–</span><span class="footer__code" data-dna-out></span><span class="footer__end">–3′</span>
+      </button>
+      <p class="footer__note">© <span data-year>2026</span> Heonjoon Lee · Hand-built with nucleotides &amp; JavaScript · <a href="#about">Back to top ↑</a></p>
+    </div>
+  </footer>
+
+  <div class="lightbox" data-lightbox hidden>
+    <div class="lightbox__backdrop" data-lightbox-close></div>
+    <figure class="lightbox__figure" role="dialog" aria-modal="true" aria-label="Enlarged figure">
+      <img alt="" data-lightbox-img>
+      <figcaption data-lightbox-cap></figcaption>
+    </figure>
+    <button class="icon-btn lightbox__close" type="button" aria-label="Close" data-lightbox-close><svg class="i"><use href="#i-close"/></svg></button>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
