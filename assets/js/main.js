@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Site interactions: reveal, nav, theme, scramble text, lightbox (figures +
-   photo), email, DNA-encoded footer.
+   Site interactions: reveal, nav, lightbox (figures + photo), email,
+   DNA-encoded footer.
    ========================================================================== */
 (function () {
   'use strict';
@@ -79,84 +79,6 @@
     if (desk.addEventListener) desk.addEventListener('change', onDesk); else if (desk.addListener) desk.addListener(onDesk);
   }
 
-  /* ---------- theme toggle (circular reveal where supported) ---------- */
-  var themeBtn = $('[data-theme-toggle]');
-  var metaTheme = $('meta[name="theme-color"]');
-  function labelTheme() {
-    var t = root.getAttribute('data-theme');
-    if (themeBtn) themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-    if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0b1730' : '#ffffff');
-  }
-  function applyTheme(t) {
-    root.setAttribute('data-theme', t);
-    try { localStorage.setItem('hj-theme', t); } catch (e) {}
-    labelTheme();
-    document.dispatchEvent(new CustomEvent('hj:themechange', { detail: t }));
-  }
-  labelTheme();
-  if (themeBtn) {
-    themeBtn.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      if (!document.startViewTransition || reduce.matches) { applyTheme(next); return; }
-      var r = themeBtn.getBoundingClientRect();
-      var x = r.left + r.width / 2, y = r.top + r.height / 2;
-      var rad = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
-      var vt = document.startViewTransition(function () { applyTheme(next); });
-      vt.ready.then(function () {
-        root.animate(
-          { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + rad + 'px at ' + x + 'px ' + y + 'px)'] },
-          { duration: 700, easing: 'cubic-bezier(.2,.75,.2,1)', pseudoElement: '::view-transition-new(root)' }
-        );
-      }).catch(function () {});
-    });
-  }
-
-  /* ---------- nucleotide scramble for the rotating word ---------- */
-  function Scrambler(el, chars) { this.el = el; this.chars = chars; this.raf = 0; }
-  Scrambler.prototype.set = function (text) {
-    var self = this, old = this.el.textContent, n = Math.max(old.length, text.length);
-    this.q = [];
-    for (var i = 0; i < n; i++) {
-      var s = Math.floor(Math.random() * 12);
-      this.q.push({ from: old[i] || '', to: text[i] || '', s: s, e: s + 8 + Math.floor(Math.random() * 14), ch: '' });
-    }
-    this.f = 0;
-    cancelAnimationFrame(this.raf);
-    return new Promise(function (res) { self.done = res; self.tick(); });
-  };
-  Scrambler.prototype.tick = function () {
-    var out = '', complete = 0;
-    for (var i = 0; i < this.q.length; i++) {
-      var q = this.q[i];
-      if (this.f >= q.e) { complete++; out += q.to; }
-      else if (this.f >= q.s) {
-        if (!q.ch || Math.random() < 0.3) q.ch = this.chars[Math.floor(Math.random() * this.chars.length)];
-        out += '<span class="s-dim">' + q.ch + '</span>';
-      } else out += q.from;
-    }
-    this.el.innerHTML = out;
-    if (complete === this.q.length) this.done();
-    else { this.f++; this.raf = requestAnimationFrame(this.tick.bind(this)); }
-  };
-  (function () {
-    var el = $('.scramble');
-    if (!el) return;
-    var words = (el.getAttribute('data-words') || '').split(',').filter(Boolean);
-    if (words.length < 2) return;
-    el.setAttribute('aria-hidden', 'true');
-    var sr = document.createElement('span');
-    sr.className = 'sr-only';
-    sr.textContent = words.slice(0, -1).join(', ') + ' and ' + words[words.length - 1];
-    el.parentNode.insertBefore(sr, el);
-    if (reduce.matches) return;
-    var sc = new Scrambler(el, 'AUGC'), i = 0;
-    function next() {
-      i = (i + 1) % words.length;
-      sc.set(words[i]).then(function () { setTimeout(next, 2400); });
-    }
-    setTimeout(next, 2600);
-  })();
-
   /* ---------- lightbox: publication figures + the full photo ---------- */
   (function () {
     var lb = $('[data-lightbox]');
@@ -183,7 +105,8 @@
         var fig = btn.closest('figure');
         if (!fig || !fig.classList.contains('has-image')) return;
         var im = $('img', btn), fc = $('figcaption', fig);
-        open(im.currentSrc || im.src, im.alt, fc ? fc.innerHTML : '', true);
+        // Figures get a white mat; journal covers are shown full-bleed
+        open(im.currentSrc || im.src, im.alt, fc ? fc.innerHTML : '', !fig.classList.contains('thumb--cover'));
       });
     });
     var ill = $('[data-photo]');

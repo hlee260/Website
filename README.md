@@ -8,13 +8,12 @@ CSS and JavaScript, so there is no build step: GitHub Pages serves it as-is.
 
 - **About:** portrait (click it to see the full photo), name, role and
   links, plus the biography, interests and education.
-- **Publications:** first-author papers with figure thumbnails (click to enlarge), plus
-  co-authored papers, the book chapter and patents.
+- **Publications:** first-author papers with their TOC graphics, figures and issue cover
+  (click to enlarge), plus co-authored papers, the book chapter and patents.
 - Talks and posters, honors and awards, peer review (linked to ORCID), code and data, press,
   and contact.
-- White and navy by default, with an optional deep-navy dark mode (circular-reveal switch).
-  Responsive, keyboard accessible, honors `prefers-reduced-motion`. Self-hosted fonts; no
-  trackers or CDNs.
+- White and navy. Responsive, keyboard accessible, honors `prefers-reduced-motion`.
+  Self-hosted fonts; no trackers or CDNs.
 
 ## Structure
 
@@ -23,25 +22,24 @@ index.html              ← all page content lives here
 404.html                ← self-contained "page not found"
 assets/
   css/style.css         ← design tokens (colors, type) at the top, then components
-  js/main.js            ← nav, theme, reveal, lightbox, email, footer easter egg
+  js/main.js            ← nav, reveal, lightbox, email, footer easter egg
   fonts/                ← WOFF fonts + licences
-  img/                  ← avatar + full photo, favicon, social card, grain texture
+  img/                  ← avatar + full photo, favicon, social card
   figures/              ← publication figures (see figures/README.md)
 ```
 
 ## Publish with GitHub Pages
 
-1. **Visibility:** this repository is private. On a free GitHub plan, Pages only works for
-   public repositories. Either make the repo public (Settings → General → Danger Zone →
-   Change visibility) or use GitHub Pro.
+1. **Visibility:** on a free GitHub plan, Pages only works for public repositories. If the
+   repo is private, either make it public (Settings → General → Danger Zone → Change
+   visibility) or use GitHub Pro.
 2. Settings → **Pages** → *Build and deployment* → Source: **Deploy from a branch** → choose
    the branch (e.g. `main`) and folder `/ (root)` → Save.
-3. The site will appear at `https://hlee260.github.io/Website/`.
-   - For the shorter `https://hlee260.github.io/`, rename the repository to
-     `hlee260.github.io`.
+3. Because the repository is named `hlee260.github.io`, the site appears at
+   `https://hlee260.github.io/`.
    - For a custom domain, add it under Settings → Pages → Custom domain.
-4. If the final URL differs from `https://hlee260.github.io/Website/`, update the two
-   `og:url` / `og:image` lines near the top of `index.html` so link previews work.
+4. If the final URL changes (e.g. a custom domain), update the two `og:url` / `og:image`
+   lines near the top of `index.html` so link previews work.
 
 ## Editing content
 
@@ -51,7 +49,7 @@ Everything is plain HTML in `index.html`, organized by commented sections
 - **Add a publication:** copy a `<li class="paper">` block (first-author, with figure) or a
   `<li class="pub">` line (co-authored).
 - **Add a figure:** see [`assets/figures/README.md`](assets/figures/README.md). Drop in a file
-  with the right name and it appears automatically.
+  with the right name and set its shape (`style="--ar: width / height"`) on the `<figure>`.
 - **Change the portrait:** replace `assets/img/avatar-*.{webp,jpg}` (square crop) and
   `assets/img/photo-1200.{webp,jpg}` (full image shown on click).
 - **Colors and fonts:** edit the tokens at the top of `assets/css/style.css`.
