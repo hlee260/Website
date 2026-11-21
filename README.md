@@ -8,8 +8,8 @@ CSS and JavaScript, so there is no build step: GitHub Pages serves it as-is.
 
 - **About:** portrait (click it to see the full photo), name, role and
   links, plus the biography, interests and education.
-- **Publications:** first-author papers with figure thumbnails (click to enlarge), plus
-  co-authored papers, the book chapter and patents.
+- **Publications:** first-author papers with their TOC graphics, figures and issue cover
+  (click to enlarge), plus co-authored papers, the book chapter and patents.
 - Talks and posters, honors and awards, peer review (linked to ORCID), code and data, press,
   and contact.
 - White and navy by default, with an optional deep-navy dark mode (circular-reveal switch).
@@ -51,7 +51,7 @@ Everything is plain HTML in `index.html`, organized by commented sections
 - **Add a publication:** copy a `<li class="paper">` block (first-author, with figure) or a
   `<li class="pub">` line (co-authored).
 - **Add a figure:** see [`assets/figures/README.md`](assets/figures/README.md). Drop in a file
-  with the right name and it appears automatically.
+  with the right name and set its shape (`style="--ar: width / height"`) on the `<figure>`.
 - **Change the portrait:** replace `assets/img/avatar-*.{webp,jpg}` (square crop) and
   `assets/img/photo-1200.{webp,jpg}` (full image shown on click).
 - **Colors and fonts:** edit the tokens at the top of `assets/css/style.css`.
