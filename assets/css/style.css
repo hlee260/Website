@@ -319,9 +319,6 @@ sup { font-size: .7em; line-height: 0; }
 .education .i { width: 20px; height: 20px; margin-top: 3px; color: var(--accent); }
 .education b { display: block; font-size: 15.5px; }
 .education span { display: block; font-size: 14.5px; color: var(--muted); }
-.bio a.education__extra { display: inline-flex; align-items: center; gap: 4px; margin-top: 2px; font-family: var(--font-mono); font-size: 11.5px; color: var(--accent); border-bottom: 0; }
-.bio a.education__extra:hover { text-decoration: underline; text-underline-offset: 3px; }
-.education__extra .i { width: 13px; height: 13px; margin: 0; }
 
 /* ---------- Blocks ---------- */
 .block { padding: clamp(40px, 6vw, 64px) 0 0; }
